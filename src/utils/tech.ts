@@ -1,0 +1,15 @@
+export const tech = [
+  { src: "/tech/docker.webp", name: "Docker" },
+  { src: "/tech/ex.png", name: "Express" },
+  { src: "/tech/fastify.png", name: "Fastify" },
+  { src: "/tech/git.png", name: "Git" },
+  { src: "/tech/html.png", name: "HTML" },
+  { src: "/tech/js.png", name: "JavaScript" },
+  { src: "/tech/mongodb.png", name: "MongoDB" },
+  { src: "/tech/next.png", name: "Next.js" },
+  { src: "/tech/nodejs.png", name: "Node.js" },
+  { src: "/tech/pg.webp", name: "PostgreSQL" },
+  { src: "/tech/react.webp", name: "React" },
+  { src: "/tech/tailwind.png", name: "Tailwind CSS" },
+  { src: "/tech/ts.png", name: "TypeScript" },
+];

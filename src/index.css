@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@font-face{
+  font-family: "Satoshi";
+  src:local("Satoshi-Variable"),
+  url('./assets/fonts/Satoshi-Variable.ttf') 
+}
+
+body{
+  font-family: "Satoshi";
+  font-weight: 500;
+  letter-spacing: -4%;
+}
