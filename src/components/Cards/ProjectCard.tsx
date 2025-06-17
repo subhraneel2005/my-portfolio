@@ -1,4 +1,3 @@
-import React from "react";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 const tech = [

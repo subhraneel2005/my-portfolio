@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import type { Variants } from "motion/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
 
 interface ExperinceCardProps {
