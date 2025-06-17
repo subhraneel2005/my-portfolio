@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import ExperinceCard from "./Cards/ExperinceCard";
+
 export default function WorkExperience({
   totalHeadlineDelay,
 }: {
@@ -14,7 +15,9 @@ export default function WorkExperience({
         transition={{ duration: 0.5, delay: totalHeadlineDelay + 0.8 }}
         className="space-y-3 max-w-3xl px-4 mt-6"
       >
-        <h2 className="font-bold text-2xl">Experience</h2>
+        <h2 className="font-bold text-2xl text-black dark:text-white">
+          Experience
+        </h2>
         <div className="space-y-6 mt-4">
           <ExperinceCard
             role={"Backend Developer"}
@@ -24,7 +27,7 @@ export default function WorkExperience({
             date={"Present"}
             location={"Kolkata, West Bengal"}
             context={
-              "Presently I do backend development for a web agency, focusing on full-stack projects for college and freelance clients. My role involves designing scalable systems, managing databases, and building APIs. I’ve implemented microservices architectures, optimized performance for high-traffic apps, and I also do deployment practices to ensure smooth delivery."
+              "Presently I do backend development for a web agency, focusing on full-stack projects for college and freelance clients. My role involves designing scalable systems, managing databases, and building APIs. I've implemented microservices architectures, optimized performance for high-traffic apps, and I also do deployment practices to ensure smooth delivery."
             }
           />
           <ExperinceCard

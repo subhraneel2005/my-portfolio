@@ -10,7 +10,7 @@ export default function App() {
   const words = headline.split(" ");
   const totalHeadlineDelay = 0.2 * words.length;
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center space-y-4 py-12">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center space-y-4 py-20">
       <Intro words={words} totalHeadlineDelay={totalHeadlineDelay} />
       <TechStack totalHeadlineDelay={totalHeadlineDelay} />
       <WorkExperience totalHeadlineDelay={totalHeadlineDelay} />

@@ -17,7 +17,7 @@ export const projectsData = [
   },
   {
     title: "QuickAuth NPM Package",
-    technologies: ["Node.js", "Express", "JWT", "OAuth2", "MongoDB"],
+    technologies: ["Node.js", "Express", "JWT", "Google OAuth2", "MongoDB"],
     description:
       "Developed and published a lightweight plug-and-play authentication middleware for Express backends. Implemented secure JWT credentials authentication and Google OAuth2 integration. Created comprehensive token management system with httpOnly cookies preventing XSS attacks. Designed modular folder structure with custom types and authentication middleware for easy integration. Built complete user schema with database configuration and clean, maintainable codebase. Published to NPM registry with detailed documentation and setup instructions.",
     githubUrl: "https://github.com/Kasukabe-Labs/quickauth",
@@ -33,7 +33,7 @@ export const projectsData = [
   },
   {
     title: "Kasukabe CMS",
-    technologies: ["React", "Node.js", "Google OAuth", "Database Integration"],
+    technologies: ["Next.js", "Node.js", "Gemini", "Google OAuth2", "MongoDB"],
     description:
       "Built CMS prompt engine with intelligent component picker and content management features. Integrated Google OAuth authentication for secure user management and session handling. Developed random prompt generator with AI-powered content suggestions and polishing tools. Implemented bookmarking system with database persistence for user content organization. Created custom color palette generator and theme management system.",
     githubUrl: "https://github.com/Kasukabe-Labs/kasukabe-cms",

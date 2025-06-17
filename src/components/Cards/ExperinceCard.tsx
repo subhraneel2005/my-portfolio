@@ -57,10 +57,12 @@ export default function ExperinceCard({
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-start border border-dashed p-3 rounded-xl border-[#00A9FF]/60 bg-[#CDF5FD]/10">
+    <div className="w-full flex flex-col justify-center items-start border border-dashed p-3 rounded-xl border-[#00A9FF]/60 bg-[#CDF5FD]/10 dark:border-[#00A9FF]/40 dark:bg-[#CDF5FD]/5">
       <span className="flex gap-2 items-center w-full justify-between">
         <span className="flex gap-2 items-center">
-          <h3 className="font-bold text-lg">{role}</h3>
+          <h3 className="font-bold text-lg text-black dark:text-white">
+            {role}
+          </h3>
           <img src={logo} alt={logoAlt} className="size-8 rounded-md" />
         </span>
         <motion.div
@@ -70,15 +72,22 @@ export default function ExperinceCard({
           animate={showContext ? "expanded" : "collapsed"}
           transition={{ type: "spring", stiffness: 400, damping: 25 }}
         >
-          <BiChevronDown size={24} className="text-[#00A9FF]/60" />
+          <BiChevronDown
+            size={24}
+            className="text-[#00A9FF]/60 dark:text-[#00A9FF]/40"
+          />
         </motion.div>
       </span>
 
       <div className="flex gap-2 mt-2">
-        <span className="italic text-zinc-700">{company}</span>
-        <span className="italic text-zinc-700">{location}</span>
+        <span className="italic text-zinc-700 dark:text-zinc-300">
+          {company}
+        </span>
+        <span className="italic text-zinc-700 dark:text-zinc-300">
+          {location}
+        </span>
       </div>
-      <span className="italic text-zinc-700">{date}</span>
+      <span className="italic text-zinc-700 dark:text-zinc-300">{date}</span>
 
       <motion.div
         variants={contentVariants}
@@ -86,7 +95,7 @@ export default function ExperinceCard({
         animate={showContext ? "expanded" : "collapsed"}
         style={{ overflow: "hidden" }}
       >
-        <p className="text-zinc-800 text-sm">{context}</p>
+        <p className="text-zinc-800 dark:text-zinc-200 text-sm">{context}</p>
       </motion.div>
     </div>
   );

@@ -15,7 +15,9 @@ export default function Project({
         transition={{ duration: 0.5, delay: totalHeadlineDelay + 1.2 }}
         className="space-y-3 max-w-3xl px-4 mt-6"
       >
-        <h2 className="font-bold text-2xl">Projects</h2>
+        <h2 className="font-bold text-2xl text-black dark:text-white">
+          Projects
+        </h2>
         <div className="space-y-6 mt-4">
           {projectsData.map((project, index) => (
             <motion.div

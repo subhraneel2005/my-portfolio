@@ -1,6 +1,6 @@
 export const tech = [
   { src: "/tech/docker.webp", name: "Docker" },
-  { src: "/tech/ex.png", name: "Express" },
+  { src: "/tech/express.webp", name: "Express" },
   { src: "/tech/fastify.png", name: "Fastify" },
   { src: "/tech/git.png", name: "Git" },
   { src: "/tech/html.png", name: "HTML" },
