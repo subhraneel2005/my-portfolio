@@ -1,4 +1,3 @@
-import React from "react";
 import Intro from "./components/Intro";
 import WorkExperience from "./components/WorkExperience";
 import TechStack from "./components/TechStack";

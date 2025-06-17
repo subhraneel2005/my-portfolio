@@ -1,4 +1,3 @@
-import React from "react";
 import { GithubGraph } from "./ui/github";
 import { motion } from "motion/react";
 
