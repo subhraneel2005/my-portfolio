@@ -5,7 +5,7 @@ import { IoIosDocument } from "react-icons/io";
 export const socialLinks = [
   {
     icon: FaSquareXTwitter,
-    url: "https://x.com/Subhraneel55545",
+    url: "https://x.com/subhraneeltwt",
     label: "Twitter",
     color: "hover:text-blue-400",
   },
