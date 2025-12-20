@@ -29,6 +29,11 @@ export default function PortfolioV2() {
 
   const pullRequests = [
     {
+      id: "19",
+      url: "https://github.com/subhraneel2005/study-toolkit/pull/19",
+      title: "feat: Built the Daily Checklist feature e2e",
+    },
+    {
       id: "18",
       url: "https://github.com/subhraneel2005/study-toolkit/pull/18",
       title: "feat: Added RSC for DailyLog screen",
