@@ -59,7 +59,7 @@ export default function PortfolioV2() {
   return (
     <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#fafafa] dark:bg-[#0a0a0a] text-black dark:text-white lowercase selection:bg-zinc-200 dark:selection:bg-zinc-800 transition-colors duration-700 ease-in-out">
       {/* Top Nav */}
-      <nav className="fixed top-0 w-full p-8 flex justify-between items-center z-50 max-w-7xl">
+      <nav className="fixed top-0 w-full p-8 flex justify-between items-center z-50 max-w-7xl bg-background">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
