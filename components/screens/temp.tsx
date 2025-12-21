@@ -12,6 +12,7 @@ import {
   ExternalLink,
   Twitter,
   Terminal,
+  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -28,6 +29,11 @@ export default function PortfolioV2() {
   if (!mounted) return null;
 
   const pullRequests = [
+    {
+      id: "20",
+      url: " https://github.com/subhraneel2005/study-toolkit/pull/20",
+      title: "feat: Finished user onboarding e2e",
+    },
     {
       id: "19",
       url: "https://github.com/subhraneel2005/study-toolkit/pull/19",
@@ -53,6 +59,15 @@ export default function PortfolioV2() {
       id: "11",
       url: "https://github.com/subhraneel2005/study-toolkit/pull/11",
       title: "feat/Added flashcards generator with disposable zustand store",
+    },
+  ];
+
+  const featureDemos = [
+    {
+      title: "onboarding flow walkthrough",
+      loomUrl: "https://www.loom.com/embed/71f9e74f32a54221852b099b0e5b6e85",
+      description:
+        "implemented full user onboarding usign betterauth, resend, prisma and react server actions",
     },
   ];
 
@@ -190,6 +205,40 @@ export default function PortfolioV2() {
                   label="email"
                   icon={<Mail className="w-4 h-4" />}
                 />
+              </div>
+            </div>
+
+            <Separator />
+
+            {/* Feature Demos Section (LOOM EMBEDS) */}
+            <div id="demos" className="space-y-6">
+              <h2 className="text-xs uppercase tracking-widest text-zinc-400 font-bold flex items-center gap-2">
+                <span>some walkthroughs</span>
+              </h2>
+              <div className="grid grid-cols-1 gap-6">
+                {featureDemos.map((demo, index) => (
+                  <div key={index} className="space-y-3 group">
+                    <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-900/50">
+                      <iframe
+                        src={demo.loomUrl}
+                        frameBorder="0"
+                        allowFullScreen
+                        className="absolute top-0 left-0 w-full h-full"
+                      ></iframe>
+                    </div>
+                    <div className="px-1">
+                      <div className="flex items-center gap-2">
+                        <Play className="w-3 h-3 text-zinc-400" />
+                        <span className="text-sm font-semibold leading-snug">
+                          {demo.title}
+                        </span>
+                      </div>
+                      <p className="text-[13px] opacity-50 mt-1 italic">
+                        {demo.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
