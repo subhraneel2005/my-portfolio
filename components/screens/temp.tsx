@@ -172,7 +172,7 @@ export default function PortfolioV2() {
             <div id="letsConnect" className="space-y-4">
               <div className="pt-4">
                 <motion.a
-                  href="https://x.com/subhraneettwt"
+                  href="https://x.com/subhraneeltwt"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 2 }}
@@ -187,7 +187,7 @@ export default function PortfolioV2() {
                         let&apos;s chat on x
                       </p>
                       <p className="text-xs text-zinc-500 italic">
-                        @subhraneettwt
+                        @subhraneeltwt
                       </p>
                     </div>
                   </div>
