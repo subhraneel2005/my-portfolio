@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/navbar";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "subhraneel",
@@ -36,6 +37,7 @@ export default function RootLayout({
         >
           <Navbar>{children}</Navbar>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
