@@ -1,0 +1,80 @@
+# learning and practicing
+
+for the past few days, i’ve been learning binary search, solved some practice problems and completed 6 leetcode questions so far.
+
+before getting into details, a few important things to mention:
+
+- i’m learning from kunal kushwaha’s java dsa playlist:  
+  https://www.youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ
+- i’m pushing all my practice code to this repository:  
+  https://github.com/subhraneel2005/dsa
+
+### what i’ve learned so far
+
+until now, i’ve covered the following concepts related to binary search:
+
+- simple binary search on a sorted array
+- binary search on an order-agnostic array (where we don’t know if the array is sorted in ascending or descending order)
+- finding the ceiling and floor of a target element
+- mountain arrays
+- finding the peak element in a mountain array
+- finding a target element in a mountain array
+
+### why i’m learning binary search
+
+for me, binary search feels like the real starting point of data structures and algorithms. it’s not just about reducing time complexity to `o(log n)`, but about learning how to think in terms of conditions, boundaries, and invariants.
+
+if i can understand binary search deeply and clearly, i believe it will make my overall dsa foundation much stronger.
+
+### how i approach problems
+
+i don’t jump straight into coding when i see a question. instead, i follow a very simple process:
+
+- i take a notebook and a pen and write down the problem very rougly
+- i sketch or write out test cases
+- i note down the core idea, logic and the conditions
+- i dry run the algorithm on 1–2 relevant examples
+
+only when the concept and flow are completely clear in my mind then i start writing code.
+
+### things i consciously do for every question
+
+some simple rules i try to follow consistently:
+
+- clear the concept on paper before touching the keyboard
+- explicitly write down the conditions, especially:
+  - loop end condition
+  - if-else branches
+- being very clear about what the function should return
+- dry running on atleast one example properly
+
+this slows me down initially, but it saves a lot of confusion and bugs later.
+
+### key elements in binary search problems
+
+most binary search questions revolve around a few core variables:
+
+- start
+- end
+- mid
+- target (not always required, but often involved)
+
+in most cases, the loop condition ends up being either:
+
+- `start <= end`
+- `start < end`
+
+understanding _why_ one works better than the other in a given problem is something i’m actively focusing on.
+
+### problems i’ve solved so far
+
+here are the leetcode submissions i’ve completed till now:
+
+- https://leetcode.com/submissions/detail/1858928841/
+- https://leetcode.com/submissions/detail/1860043450/
+- https://leetcode.com/submissions/detail/1866408812/
+- https://leetcode.com/submissions/detail/1866439161/
+- https://leetcode.com/submissions/detail/1866601560/
+- https://leetcode.com/submissions/detail/1866605930/
+
+so far binary search has already taught me a lot about structured thinking and problem breakdown. planning to keep going, stay consistent, and build this foundation properly. also a huge thanks to Kunal's playlist he is such an amazing teacher.

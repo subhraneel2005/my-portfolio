@@ -13,7 +13,9 @@ import {
   Twitter,
   Terminal,
   Play,
+  BookOpen,
 } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
@@ -72,59 +74,23 @@ export default function PortfolioV2() {
   ];
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#fafafa] dark:bg-[#0a0a0a] text-black dark:text-white lowercase selection:bg-zinc-200 dark:selection:bg-zinc-800 transition-colors duration-700 ease-in-out">
-      {/* Top Nav */}
-      <nav className="fixed top-0 w-full p-8 flex justify-between items-center z-50 max-w-7xl bg-background">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex items-center gap-2 font-bold tracking-tighter"
-        >
-          <Terminal className="w-4 h-4" />
-          <span>subhraneel.</span>
-        </motion.div>
-
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setTheme(isDark ? "light" : "dark")}
-          className="rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300"
-        >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={isDark ? "dark" : "light"}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.15 }}
-            >
-              {isDark ? (
-                <Moon className="w-5 h-5" />
-              ) : (
-                <Sun className="w-5 h-5" />
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </Button>
-      </nav>
-
-      {/* Main Content */}
-      <main className="relative mt-10 z-10 w-[85%] md:w-[60%] lg:w-[45%] py-24">
+    <main className="min-h-screen w-full bg-background text-foreground">
+      <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16">
         <motion.section
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.9] mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-[0.9] mb-6 sm:mb-8">
             building in the{" "}
-            <span className="italic font-light opacity-40 text-3xl md:text-5xl">
+            <span className="italic font-light opacity-40 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
               shadows
             </span>
             <br />
             back in a bit.
           </h1>
 
-          <div className="space-y-10 max-w-md">
+          <div className="space-y-8 sm:space-y-10">
             <p className="text-lg leading-tight text-zinc-500 dark:text-zinc-400">
               got bored of my old portfolio so building a new one, currently
               under-contruction
@@ -164,6 +130,36 @@ export default function PortfolioV2() {
                   </motion.a>
                 ))}
               </div>
+            </div>
+
+            <Separator />
+
+            {/* Blog Section */}
+            <div id="blog" className="space-y-4">
+              <h2 className="text-xs uppercase tracking-widest text-zinc-400 font-bold flex items-center gap-2">
+                <span>blogs</span>
+              </h2>
+              <Link href="/blog">
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  className="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors group cursor-pointer"
+                >
+                  <div className="flex gap-4">
+                    <div className="mt-1">
+                      <BookOpen className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm font-semibold leading-snug">
+                        read my blogs
+                      </span>
+                      <span className="text-[13px] opacity-50">
+                        thoughts and learnings
+                      </span>
+                    </div>
+                  </div>
+                  <ExternalLink className="w-3 h-3 mt-1 opacity-0 group-hover:opacity-40 transition-opacity" />
+                </motion.div>
+              </Link>
             </div>
 
             <Separator />
@@ -243,8 +239,8 @@ export default function PortfolioV2() {
             </div>
           </div>
         </motion.section>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
 

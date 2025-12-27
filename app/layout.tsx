@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "subhraneel",
@@ -26,14 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.className} antialiased`}>
+      <body className={`${GeistSans.className} antialiased px-4`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Navbar>{children}</Navbar>
         </ThemeProvider>
       </body>
     </html>
