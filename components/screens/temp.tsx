@@ -139,7 +139,7 @@ export default function PortfolioV2() {
               <h2 className="text-xs uppercase tracking-widest text-zinc-400 font-bold flex items-center gap-2">
                 <span>blogs</span>
               </h2>
-              <Link href="/blog">
+              <Link href="/blogs">
                 <motion.div
                   whileHover={{ x: 4 }}
                   className="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors group cursor-pointer"
