@@ -14,10 +14,14 @@ import {
   Terminal,
   Play,
   BookOpen,
+  LayoutGrid,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
+import { Badge } from "../ui/badge";
 
 export default function PortfolioV2() {
   const { theme, setTheme, systemTheme } = useTheme();
@@ -73,6 +77,16 @@ export default function PortfolioV2() {
     },
   ];
 
+  const projects = [
+    {
+      id: "study-toolkit",
+      title: "study-toolkit",
+      description:
+        "An open-source, student-first productivity platform with AI-powered tools.",
+      tech: ["Next.js", "Vercel AI SDK", "Prisma"],
+    },
+  ];
+
   return (
     <main className="min-h-screen w-full bg-background text-foreground">
       <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16">
@@ -82,25 +96,89 @@ export default function PortfolioV2() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-[0.9] mb-6 sm:mb-8">
-            building in the{" "}
+            hi, i&apos;m subhraneel👋 <br />
             <span className="italic font-light opacity-40 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              shadows
+              i build things for the web
             </span>
-            <br />
-            back in a bit.
           </h1>
-
           <div className="space-y-8 sm:space-y-10">
             <p className="text-lg leading-tight text-zinc-500 dark:text-zinc-400">
-              got bored of my old portfolio so building a new one, currently
-              under-contruction
+              i like to create open-source tools and exploring new tech.
+              currently focused on skillmaxxing and shipping usefull tools.
             </p>
+
+            <Separator />
+
+            {/* NEW: Projects Section */}
+            <div id="projects" className="space-y-4">
+              <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold flex items-center gap-2">
+                <span>sideprojects</span>
+              </h2>
+              <div className="grid grid-cols-1 gap-3">
+                {projects.map((project) => (
+                  <Link href={`/projects/${project.id}`} key={project.id}>
+                    <div className="flex flex-col sm:flex-row gap-4 rounded-xl border border-zinc-200 dark:border-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors group cursor-pointer p-3">
+                      {/* Small, fixed-size Thumbnail for horizontal look */}
+                      <div className="relative h-28 w-full sm:w-40 shrink-0 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
+                        <Image
+                          src="/opengraph.png"
+                          alt={`${project.title} thumbnail`}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+
+                      {/* Project Info */}
+                      <div className="flex flex-col justify-center flex-1">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-md font-semibold leading-snug tracking-[-1.1px]">
+                            {project.title}
+                          </span>
+                          <ChevronRight className="w-4 h-4 opacity-20 group-hover:opacity-100 transition-opacity" />
+                        </div>
+
+                        <span className="text-[13px] opacity-70 mb-4 line-clamp-2">
+                          {project.description}
+                        </span>
+
+                        {/* Your exact Badge styles preserved */}
+                        <div className="flex flex-wrap gap-2">
+                          {[
+                            { name: "Next.js", src: "/nextjs.png" },
+                            { name: "Prisma", src: "/prisma.png" },
+                            { name: "Vercel", src: "/vercel.svg" },
+                            { name: "Gemini", src: "/gemini.png" },
+                          ].map((tech) => (
+                            <Badge
+                              variant={"outline"}
+                              key={tech.name}
+                              className="bg-secondary gap-1"
+                            >
+                              <Image
+                                src={tech.src}
+                                alt={tech.name}
+                                width={12}
+                                height={12}
+                                className="object-contain"
+                              />
+                              <span className="text-[13px] font-medium tracking-tight">
+                                {tech.name}
+                              </span>
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             <Separator />
 
             {/* Current Working and Documenting Section */}
             <div id="work" className="space-y-4">
-              <h2 className="text-xs uppercase tracking-widest text-zinc-400 font-bold flex items-center gap-2">
+              <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold flex items-center gap-2">
                 <span>current working and documenting</span>
               </h2>
               <div className="grid grid-cols-1 gap-3">
@@ -136,7 +214,7 @@ export default function PortfolioV2() {
 
             {/* Blog Section */}
             <div id="blog" className="space-y-4">
-              <h2 className="text-xs uppercase tracking-widest text-zinc-400 font-bold flex items-center gap-2">
+              <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold flex items-center gap-2">
                 <span>blogs</span>
               </h2>
               <Link href="/blogs">
@@ -208,7 +286,7 @@ export default function PortfolioV2() {
 
             {/* Feature Demos Section (LOOM EMBEDS) */}
             <div id="demos" className="space-y-6">
-              <h2 className="text-xs uppercase tracking-widest text-zinc-400 font-bold flex items-center gap-2">
+              <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold flex items-center gap-2">
                 <span>some walkthroughs</span>
               </h2>
               <div className="grid grid-cols-1 gap-6">
@@ -224,7 +302,7 @@ export default function PortfolioV2() {
                     </div>
                     <div className="px-1">
                       <div className="flex items-center gap-2">
-                        <Play className="w-3 h-3 text-zinc-400" />
+                        <Play className="w-3 h-3 text-muted-foreground" />
                         <span className="text-sm font-semibold leading-snug">
                           {demo.title}
                         </span>
