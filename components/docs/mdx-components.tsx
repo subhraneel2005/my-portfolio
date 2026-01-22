@@ -9,6 +9,7 @@ import { ExternalLink } from "lucide-react";
 import TwitterCard from "../twitter-card";
 import MDXAvatar from "./mdx-avatar";
 import Link from "next/link";
+import MDXIcon from "./mdx-icon";
 
 export const components = {
   h1: ({ className, ...props }) => (
@@ -157,5 +158,6 @@ export const components = {
   Card: MdxCard,
   TwitterCard,
   Avatar: MDXAvatar,
-  Link
+  Link,
+  MDXIcon
 };
