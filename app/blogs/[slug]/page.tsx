@@ -9,6 +9,7 @@ import { getMDXComponent } from "next-contentlayer2/hooks";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import Comments from "@/components/comments";
+import MDXRenderer from "@/components/docs/mdx-renderer";
 
 export async function generateStaticParams() {
   return allBlogs.map((post) => ({
@@ -62,8 +63,6 @@ export default async function BlogPostPage({
 
   if (!post) notFound();
 
-  const Content = getMDXComponent(post.body.code);
-
   return (
     <div className="mx-auto max-w-3xl px-3 pt-18 md:pt-28 pb-16 w-full">
       <Link href="/blogs">
@@ -73,10 +72,6 @@ export default async function BlogPostPage({
         </Button>
       </Link>
 
-      {/* Change: Remove 'max-w-none' from prose. 
-        Letting prose handle its own max-width (max-w-prose) is what 
-        makes blog text look centered and readable.
-    */}
       <article className="prose prose-neutral dark:prose-invert max-w-none">
         {post.cover && (
           <div className="relative w-full h-[200px] md:h-[350px] overflow-hidden mb-8">
@@ -99,7 +94,7 @@ export default async function BlogPostPage({
           )}
         </Badge>
 
-        <Content components={components} />
+        <MDXRenderer code={post.body.code} />
       </article>
 
       <hr className="my-4 border-muted" />

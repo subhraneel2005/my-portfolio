@@ -35,7 +35,7 @@ export default function BlogListPage() {
 
         <div className="space-y-6">
           {blogs.map((post) => (
-            <Link key={post.slug} href={`/blogs/${post.slug}`}>
+            <Link className="mt-4" key={post.slug} href={`/blogs/${post.slug}`}>
               <Card className="group hover:bg-accent/50 transition-colors max-w-lg">
                 <CardHeader>
                   {post.cover && (
