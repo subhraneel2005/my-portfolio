@@ -1,0 +1,240 @@
+---
+title: "Who is this guy?"
+date: 2026-01-27
+excerpt: "here ive yapped about myself"
+cover: "/images/blog2.png"
+tags: ["aboutme", "whoami", "work", "hire me"]
+---
+
+import { Mail } from "lucide-react"
+import { Linkedin } from "lucide-react"
+import { LucideTwitter } from "lucide-react"
+import { TwitterIcon } from "lucide-react"
+import { Twitter } from "lucide-react"
+import { Globe } from "lucide-react"
+import { Phone } from "lucide-react"
+import { Github, Link2Icon } from "lucide-react"
+
+# about me
+
+hey, i'm subhraneel. final year cs student from kolkata, india. i build production ready fullstack systems and real time backend infrastructure. good with backend stuff.
+
+## who i am
+
+i'm someone who actually ships things. not just demos or side projects that sit on github—i mean production ready stuff that people can use. i care about clean code, good architecture, and building things the right way. no shortcuts, no bloat, just solid systems that work.
+
+currently a final year student at institute of engineering and management, kolkata (graduating may 2026). but honestly, i've been learning more from building real projects and working on actual products than from classes.
+
+i've also been a founding engineer at kasukabe labs where i shipped freelance client projects, apps, and chrome extensions.
+
+## what i do
+
+<Callout>
+i build fullstack systems with a focus on real time infrastructure. think websockets, event driven architecture, async flows—that kind of stuff. i'm really into making things that respond instantly and handle data well.
+</Callout>
+
+#### here's what i'm good at:
+- building real time systems (websockets, trpc, low latency stuff)
+- fullstack development (comfortable with both frontend and backend)
+- ai integrations (practical stuff, not gimmicks)
+- clean architecture and code practices
+- authentication and authorization flows
+- scalable apis and data handling
+- open source development
+
+## my stack
+
+**languages**: typescript (main), javascript, java, sql
+
+**frontend**: react, next.js (app router, rsc), html5, css3, tailwind css, shadcn/ui
+
+**backend**: node.js, rest apis, trpc, websockets, server actions, authentication, authorization, jwt
+
+**databases**: postgresql, mongodb, prisma orm
+
+**ai stuff**: gemini api, openai api, vercel ai sdk, eleven labs
+
+**infrastructure**: vercel, neondb, aws, docker, gcp
+
+**tools**: git, github, cursor
+
+## what i've built
+
+### study toolkit (open sourced)
+
+<Callout>
+built this whole platform using modern stack and best practices. it's an ai powered productivity tool for students—actually useful, not just another ai wrapper.
+</Callout>
+
+#### what's in it:
+- credit based ai usage (300 free credits)
+- smart token costing based on what tool you're using
+- fallback system so you can plug in your own gemini api key when credits run out
+- react server components and server actions for secure, optimized data handling
+- clean ui that doesn't distract you with unnecessary features
+- fully open sourced and well documented
+
+#### learned a ton building this:
+- server actions in next.js
+- using vercel ai sdk properly
+- ai elements from vercel
+- rsc (react server components)
+- writing good github commits
+- bunch of useful git commands like git rebase
+- shared everything on twitter/x, got feedback and iterated on it
+
+<div className="space-y-2">
+  <div className="flex items-baseline gap-2">
+    <span>live at</span>
+    <Link
+      href="https://study-toolkit.vercel.app/"
+      className="flex items-baseline gap-1 text-muted-foreground"
+    >
+      <MDXIcon icon={Link2Icon} className="h-4 w-4 translate-y-[2.5px] text-muted-foreground" />
+      <span>study-toolkit.vercel.app</span>
+    </Link>
+  </div>
+
+  <div className="flex items-baseline gap-2">
+    <span>github:</span>
+    <Link
+      href="https://github.com/subhraneel2005/study-toolkit"
+      className="flex items-baseline gap-1 text-muted-foreground"
+    >
+      <MDXIcon icon={Github} className="h-4 w-4 translate-y-[2.5px] text-muted-foreground" />
+      <span>github.com/subhraneel2005/study-toolkit</span>
+    </Link>
+  </div>
+</div>
+
+### realtime notification service
+
+<Callout>
+designed and built a real time notification system using trpc and websockets. low latency event delivery, proper auth, the whole deal.
+</Callout>
+
+#### technical stuff:
+- authenticated websocket connections that trigger on user login
+- end to end jwt authentication flow
+- full e2e post like flow where events update the db and async trigger notifications
+- websocket server emits multiple events (like_ack to the person who liked, notification to the post author)
+- prisma with postgresql (neondb) for storage
+- fully documented everything—architecture, event flows, payloads, diagrams
+
+<div className="flex items-baseline gap-2">
+    <span>github:</span>
+
+<Link
+    href="https://github.com/subhraneel2005/trpc-realtime-notification-service"
+    className="flex items-baseline gap-1 text-muted-foreground"
+  >
+    <MDXIcon icon={Github} className="h-4 w-4 translate-y-[2.5px] text-muted-foreground" />
+    <span>github.com/subhraneel2005/trpc-realtime-notification-service</span>
+  </Link>
+</div>
+
+### ai chrome extension (at jobsforce)
+
+worked as a fullstack developer intern at jobsforce (san francisco, remote) from march to september 2025.
+
+built an ai powered chrome extension using plasmo. implemented real time communication between llms and users with websockets and node.js. handled scalable frontend data for 5000+ job listings using pagination and infinite scroll. designed secure authentication apis with role based access control.
+
+worked across the entire stack to ship production ready features.
+
+## what i'm building now
+
+currently working on a one shot ai video generator platform using latest tech and local models. exploring cutting edge stuff in ai video generation.
+
+## how i work
+
+<Callout>i like to build things properly from the start. clean code, good documentation, transparent architecture. i open source my work because i think code should be extensible and easy to understand.</Callout>
+
+i also like building in public and sharing what i'm learning, getting feedback, iterating. twitter/x has been great for this.
+
+i'm comfortable working end to end, from database design to production deployment. i handle both the frontend polish and the backend complexity. i ship complete features, not half finished implementations.
+
+## work style
+
+- i prefer direct, clear communication
+- happy to hop on quick chats or calls
+- open to take home assessments
+- comfortable working remotely
+- active on twitter/x and github
+- strong git workflow (good commits, rebasing, proper branching)
+- i document things well so others can understand the codebase
+
+## what i care about
+
+**clean architecture**: i care about writing maintainable code that makes sense. its simple, readable and makes sense with proper documentation.
+
+**production reliability**: everything i build is meant to actually work in production, not just look good in a demo.
+
+**security**: proper auth flows, jwt handling, role based access control, middlewares and proper error messages things matter.
+
+**user focused design**: i build practical solutions. distraction free ui that solve real problems.
+
+**open source**: i believe in transparent, extensible code that others can learn from and build on, so i document them properly in easy to understand lang.
+
+## currently
+
+- actively looking for swe roles
+- interested in companies building real time systems, ai products, or developer tools
+- open to remote opportunities
+- can start immediately
+- located in kolkata, west bengal, india (ist timezone)
+
+## get in touch
+
+<div className="space-y-2 mt-4">
+  <div className="flex items-baseline gap-2">
+    <MDXIcon icon={Mail} className="h-4 w-4 translate-y-[2.5px] text-muted-foreground" />
+    <Link href="mailto:subhraneeljobs@gmail.com" className="text-muted-foreground">
+      subhraneeljobs@gmail.com
+    </Link>
+  </div>
+  
+  <div className="flex items-baseline gap-2">
+    <MDXIcon icon={Phone} className="h-4 w-4 translate-y-[2.5px] text-muted-foreground" />
+    <span className="text-muted-foreground">+91 6295590363</span>
+  </div>
+  
+  <div className="flex items-baseline gap-2">
+    <MDXIcon icon={Globe} className="h-4 w-4 translate-y-[2.5px] text-muted-foreground" />
+    <Link href="https://subhraneel.vercel.app" className="text-muted-foreground">
+      subhraneel.vercel.app
+    </Link>
+  </div>
+  
+  <div className="flex items-baseline gap-2">
+    <MDXIcon icon={Linkedin} className="h-4 w-4 translate-y-[2.5px] text-muted-foreground" />
+    <Link href="https://www.linkedin.com/in/subhraneel-goswami-599931282/" className="text-muted-foreground">
+      linkedin.com/in/subhraneel-goswami-599931282
+    </Link>
+  </div>
+  
+  <div className="flex items-baseline gap-2">
+    <MDXIcon icon={Github} className="h-4 w-4 translate-y-[2.5px] text-muted-foreground" />
+    <Link href="https://github.com/subhraneel2005" className="text-muted-foreground">
+      github.com/subhraneel2005
+    </Link>
+  </div>
+</div>
+
+## quick summary for context
+
+i build and ship fullstack systems. recently built an open source ai study platform with credit based usage and server components. designed a realtime notification service with websockets and trpc. worked as a fullstack intern building ai chrome extensions and realtime llm integrations. consistently focused on clean architecture, secure flows, and production reliability. founding engineer at kasukabe labs shipping client projects.
+
+<div className="flex items-baseline gap-2 mt-4">
+    <MDXIcon icon={TwitterIcon} className="h-4 w-4 translate-y-[2px] text-[#1DA1F2] font-bold"/>
+    <Link href="https://x.com/subhraneeltwt" className="text-primary">
+      happy to chat if this aligns :)
+    </Link>
+  </div>
+
+
+
+<div className="mt-12 text-sm text-muted-foreground space-y-1">
+  <p>*last updated: january 2026*</p>
+  <br/>
+  <p>*this is meant to give ai assistants, potential employers, or anyone else to get full context about me and how i work. use whatever's relevant.*</p>
+</div>

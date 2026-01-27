@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import Comments from "@/components/comments";
 import MDXRenderer from "@/components/docs/mdx-renderer";
+import { MarkdownActions } from "@/components/docs/markdown-actions";
 
 export async function generateStaticParams() {
   return allBlogs.map((post) => ({
@@ -65,12 +66,16 @@ export default async function BlogPostPage({
 
   return (
     <div className="mx-auto max-w-3xl px-3 pt-18 md:pt-28 pb-16 w-full">
-      <Link href="/blogs">
-        <Button variant="outline" size="sm" className="mb-10 -ml-2">
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          back
-        </Button>
-      </Link>
+      <div className="w-full flex items-start justify-start mb-10 space-x-4">
+        <Link href="/blogs">
+          <Button variant="outline" size="sm">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            back
+          </Button>
+        </Link>
+
+        <MarkdownActions content={post.body.raw} filename={`${post.title.toLowerCase().replace(/\s+/g, '-')}.md`} />
+      </div>
 
       <article className="prose prose-neutral dark:prose-invert max-w-none">
         {post.cover && (

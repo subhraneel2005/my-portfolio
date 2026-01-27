@@ -80,9 +80,7 @@ export const components = {
         {...props}
       >
         <span className="shrink">{children}</span>
-        {isExternal && (
-          <ExternalLink className="w-3 h-3 md:w-4 md:h-4 shrink-0" />
-        )}
+
       </a>
     );
   },
