@@ -21,45 +21,50 @@ export default function BlogListPage() {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground">
-      <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16">
-        <Link href="/">
-          <Button variant="outline" size="sm" className="mb-12 -ml-2">
+      <div className="mx-auto w-full max-w-2xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16">
+        <Link href="/" className="inline-block mb-12 -ml-2">
+          <Button variant="outline" size="sm">
             <ArrowLeft className="w-4 h-4 mr-2" />
             back
           </Button>
         </Link>
 
-        <h1 className="text-4xl lg:text-5xl font-bold tracking-[-1.5px] mb-12">
+        <h1 className="text-4xl lg:text-5xl font-bold tracking-[-1.5px] mb-14">
           sometimes i do write
         </h1>
 
-        <div className="space-y-6">
+        <div className="space-y-10">
           {blogs.map((post) => (
-            <Link className="mt-4" key={post.slug} href={`/blogs/${post.slug}`}>
-              <Card className="group hover:bg-accent/50 transition-colors max-w-lg">
-                <CardHeader>
+            <Link
+              key={post.slug}
+              href={`/blogs/${post.slug}`}
+              className="block"
+            >
+              <Card className="group transition-all hover:bg-accent/50 hover:-translate-y-0.5">
+                <CardHeader className="space-y-4">
                   {post.cover && (
-                    <div className="relative w-full h-64">
+                    <div className="relative w-full h-64 overflow-hidden rounded-xl">
                       <Image
                         src={post.cover}
                         alt={post.title}
                         fill
-                        className="object-cover rounded-xl"
+                        className="object-cover"
                       />
                     </div>
                   )}
+
                   <CardTitle className="text-2xl tracking-[-1.1px]">
                     {post.title}
                   </CardTitle>
 
                   <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                    <Badge variant={"outline"}>
-                      <Calendar />
+                    <Badge variant="outline" className="gap-1">
+                      <Calendar className="w-3.5 h-3.5" />
                       {formatDate(post.date)}
                     </Badge>
 
                     {post.tags?.map((tag) => (
-                      <Badge variant={"secondary"} key={tag}>
+                      <Badge variant="secondary" key={tag}>
                         {tag}
                       </Badge>
                     ))}

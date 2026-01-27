@@ -66,7 +66,8 @@ export default async function BlogPostPage({
 
   return (
     <div className="mx-auto max-w-3xl px-3 pt-18 md:pt-28 pb-16 w-full">
-      <div className="w-full flex items-start justify-start mb-10 space-x-4">
+      <div className="w-full flex flex-col md:flex-row items-start justify-start mb-10 gap-y-4 md:gap-y-0 md:space-x-4">
+
         <Link href="/blogs">
           <Button variant="outline" size="sm">
             <ArrowLeft className="w-4 h-4 mr-2" />
