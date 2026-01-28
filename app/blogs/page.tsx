@@ -20,68 +20,75 @@ export default function BlogListPage() {
   );
 
   return (
-    <div className="min-h-screen w-full bg-background text-foreground">
-      <div className="mx-auto w-full max-w-2xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16">
-        <Link href="/" className="inline-block mb-12 -ml-2">
-          <Button variant="outline" size="sm">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            back
-          </Button>
-        </Link>
+    <div className="mx-auto w-full max-w-3xl px-4 pb-16 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-10">
+      <Link href="/" className="mb-10 inline-block -ml-2 sm:mb-12">
+        <Button variant="outline" size="sm">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          back
+        </Button>
+      </Link>
 
-        <h1 className="text-4xl lg:text-5xl font-bold tracking-[-1.5px] mb-14">
+      <header className="mb-10 space-y-3 sm:mb-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          writing
+        </p>
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
           sometimes i do write
         </h1>
+        <p className="max-w-xl text-sm text-muted-foreground sm:text-base">
+          small logs about what i&apos;m learning, building, and trying to get
+          better at.
+        </p>
+      </header>
 
-        <div className="space-y-10">
-          {blogs.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/blogs/${post.slug}`}
-              className="block"
-            >
-              <Card className="group transition-all hover:bg-accent/50 hover:-translate-y-0.5">
-                <CardHeader className="space-y-4">
-                  {post.cover && (
-                    <div className="relative w-full h-64 overflow-hidden rounded-xl">
-                      <Image
-                        src={post.cover}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-
-                  <CardTitle className="text-2xl tracking-[-1.1px]">
-                    {post.title}
-                  </CardTitle>
-
-                  <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                    <Badge variant="outline" className="gap-1">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {formatDate(post.date)}
-                    </Badge>
-
-                    {post.tags?.map((tag) => (
-                      <Badge variant="secondary" key={tag}>
-                        {tag}
-                      </Badge>
-                    ))}
+      <div className="space-y-8 sm:space-y-10">
+        {blogs.map((post) => (
+          <Link
+            key={post.slug}
+            href={`/blogs/${post.slug}`}
+            className="block"
+          >
+            <Card className="group border-border/80 bg-card/80 transition-all hover:-translate-y-0.5 hover:bg-accent/40">
+              <CardHeader className="space-y-4">
+                {post.cover && (
+                  <div className="relative h-52 w-full overflow-hidden rounded-xl border border-border/70 sm:h-60">
+                    <Image
+                      src={post.cover}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                </CardHeader>
-
-                {post.excerpt && (
-                  <CardContent>
-                    <p className="text-muted-foreground line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                  </CardContent>
                 )}
-              </Card>
-            </Link>
-          ))}
-        </div>
+
+                <CardTitle className="text-xl tracking-tight sm:text-2xl">
+                  {post.title}
+                </CardTitle>
+
+                <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground sm:gap-3 sm:text-sm">
+                  <Badge variant="outline" className="gap-1">
+                    <Calendar className="h-3.5 w-3.5" />
+                    {formatDate(post.date)}
+                  </Badge>
+
+                  {post.tags?.map((tag) => (
+                    <Badge variant="secondary" key={tag}>
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </CardHeader>
+
+              {post.excerpt && (
+                <CardContent>
+                  <p className="line-clamp-2 text-sm text-muted-foreground">
+                    {post.excerpt}
+                  </p>
+                </CardContent>
+              )}
+            </Card>
+          </Link>
+        ))}
       </div>
     </div>
   );

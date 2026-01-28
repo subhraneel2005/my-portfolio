@@ -2,35 +2,26 @@
 
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "next-themes";
 import {
   Github,
   Mail,
-  Moon,
-  Sun,
   GitPullRequestArrow,
   ExternalLink,
   Twitter,
   Terminal,
   Play,
   BookOpen,
-  LayoutGrid,
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
 
 export default function PortfolioV2() {
-  const { theme, setTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => setMounted(true), []);
-
-  const currentTheme = theme === "system" ? systemTheme : theme;
-  const isDark = currentTheme === "dark";
 
   if (!mounted) return null;
 
@@ -89,37 +80,37 @@ export default function PortfolioV2() {
 
   return (
     <main className="min-h-screen w-full bg-background text-foreground">
-      <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16">
+      <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
         <motion.section
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-[0.9] mb-6 sm:mb-8">
-            hi, i&apos;m subhraneel👋 <br />
-            <span className="italic font-light opacity-40 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              i build things for the web
+          <h1 className="mb-6 text-3xl font-semibold leading-[0.9] tracking-tight sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
+            hi, i&apos;m subhraneel 👋 <br />
+            <span className="mt-2 inline-block text-2xl font-light italic text-muted-foreground sm:text-3xl md:text-4xl lg:text-5xl">
+              i build things for the web.
             </span>
           </h1>
           <div className="space-y-8 sm:space-y-10">
-            <p className="text-lg leading-tight text-zinc-500 dark:text-zinc-400">
-              i like to create open-source tools and exploring new tech.
-              currently focused on skillmaxxing and shipping usefull tools.
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              i like to create open-source tools and explore new tech. currently
+              focused on skillmaxxing and shipping useful tools.
             </p>
 
             <Separator />
 
             {/* NEW: Projects Section */}
             <div id="projects" className="space-y-4">
-              <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold flex items-center gap-2">
-                <span>sideprojects</span>
+              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                <span>side projects</span>
               </h2>
               <div className="grid grid-cols-1 gap-3">
                 {projects.map((project) => (
                   <Link href={`/projects/${project.id}`} key={project.id}>
-                    <div className="flex flex-col sm:flex-row gap-4 rounded-xl border border-zinc-200 dark:border-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors group cursor-pointer p-3">
+                    <div className="group flex cursor-pointer flex-col gap-4 rounded-xl border border-border/80 bg-card/70 p-3 transition-colors hover:bg-accent/40 sm:flex-row">
                       {/* Small, fixed-size Thumbnail for horizontal look */}
-                      <div className="relative h-28 w-full sm:w-40 shrink-0 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
+                      <div className="relative h-28 w-full shrink-0 overflow-hidden rounded-lg border border-border/60 sm:w-40">
                         <Image
                           src="/opengraph.png"
                           alt={`${project.title} thumbnail`}
@@ -128,20 +119,18 @@ export default function PortfolioV2() {
                         />
                       </div>
 
-                      {/* Project Info */}
                       <div className="flex flex-col justify-center flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-md font-semibold leading-snug tracking-[-1.1px]">
+                        <div className="mb-1 flex items-center justify-between">
+                          <span className="text-sm font-semibold leading-snug tracking-tight sm:text-base">
                             {project.title}
                           </span>
-                          <ChevronRight className="w-4 h-4 opacity-20 group-hover:opacity-100 transition-opacity" />
+                          <ChevronRight className="h-4 w-4 opacity-20 transition-opacity group-hover:opacity-100" />
                         </div>
 
-                        <span className="text-[13px] opacity-70 mb-4 line-clamp-2">
+                        <span className="mb-4 line-clamp-2 text-[13px] text-muted-foreground">
                           {project.description}
                         </span>
 
-                        {/* Your exact Badge styles preserved */}
                         <div className="flex flex-wrap gap-2">
                           {[
                             { name: "Next.js", src: "/nextjs.png" },
@@ -149,11 +138,7 @@ export default function PortfolioV2() {
                             { name: "Vercel", src: "/vercel.svg" },
                             { name: "Gemini", src: "/gemini.png" },
                           ].map((tech) => (
-                            <Badge
-                              variant={"outline"}
-                              key={tech.name}
-                              className="bg-secondary gap-1"
-                            >
+                            <Badge variant="outline" key={tech.name} className="gap-1 bg-secondary/60">
                               <Image
                                 src={tech.src}
                                 alt={tech.name}
@@ -178,8 +163,8 @@ export default function PortfolioV2() {
 
             {/* Current Working and Documenting Section */}
             <div id="work" className="space-y-4">
-              <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold flex items-center gap-2">
-                <span>current working and documenting</span>
+              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                <span>current work & documenting</span>
               </h2>
               <div className="grid grid-cols-1 gap-3">
                 {pullRequests.map((pr) => (
@@ -189,22 +174,22 @@ export default function PortfolioV2() {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ x: 4 }}
-                    className="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors group"
+                    className="group flex items-start justify-between rounded-xl border border-border/80 bg-card/70 p-4 transition-colors hover:bg-accent/40"
                   >
                     <div className="flex gap-4">
                       <div className="mt-1">
-                        <GitPullRequestArrow className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                        <GitPullRequestArrow className="h-4 w-4 text-purple-500 dark:text-purple-400" />
                       </div>
                       <div className="flex flex-col gap-1">
                         <span className="text-sm font-semibold leading-snug">
                           {pr.title}
                         </span>
-                        <span className="text-[13px]  opacity-50">
+                        <span className="text-[13px] text-muted-foreground">
                           PR #{pr.id} — study-toolkit
                         </span>
                       </div>
                     </div>
-                    <ExternalLink className="w-3 h-3 mt-1 opacity-0 group-hover:opacity-40 transition-opacity" />
+                    <ExternalLink className="mt-1 h-3 w-3 opacity-0 transition-opacity group-hover:opacity-40" />
                   </motion.a>
                 ))}
               </div>
@@ -214,28 +199,28 @@ export default function PortfolioV2() {
 
             {/* Blog Section */}
             <div id="blog" className="space-y-4">
-              <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold flex items-center gap-2">
+              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 <span>blogs</span>
               </h2>
               <Link href="/blogs">
                 <motion.div
                   whileHover={{ x: 4 }}
-                  className="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors group cursor-pointer"
+                  className="group flex cursor-pointer items-start justify-between rounded-xl border border-border/80 bg-card/70 p-4 transition-colors hover:bg-accent/40"
                 >
                   <div className="flex gap-4">
                     <div className="mt-1">
-                      <BookOpen className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                      <BookOpen className="h-4 w-4 text-purple-500 dark:text-purple-400" />
                     </div>
                     <div className="flex flex-col gap-1">
                       <span className="text-sm font-semibold leading-snug">
                         read my blogs
                       </span>
-                      <span className="text-[13px] opacity-50">
+                      <span className="text-[13px] text-muted-foreground">
                         thoughts and learnings
                       </span>
                     </div>
                   </div>
-                  <ExternalLink className="w-3 h-3 mt-1 opacity-0 group-hover:opacity-40 transition-opacity" />
+                  <ExternalLink className="mt-1 h-3 w-3 opacity-0 transition-opacity group-hover:opacity-40" />
                 </motion.div>
               </Link>
             </div>
@@ -250,17 +235,17 @@ export default function PortfolioV2() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 2 }}
-                  className="flex items-center justify-between p-4 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 group"
+                  className="group flex items-center justify-between rounded-xl border border-border/80 bg-card/80 p-4 transition-colors hover:bg-accent/40"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="p-2 bg-white dark:bg-black rounded-lg border border-zinc-200 dark:border-zinc-800">
-                      <Twitter className="w-5 h-5 fill-current" />
+                    <div className="rounded-lg border border-border/70 bg-background p-2">
+                      <Twitter className="h-5 w-5 fill-current" />
                     </div>
                     <div>
                       <p className="text-sm font-semibold">
                         let&apos;s chat on x
                       </p>
-                      <p className="text-xs text-zinc-500 italic">
+                      <p className="text-xs italic text-muted-foreground">
                         @subhraneeltwt
                       </p>
                     </div>
@@ -286,13 +271,13 @@ export default function PortfolioV2() {
 
             {/* Feature Demos Section (LOOM EMBEDS) */}
             <div id="demos" className="space-y-6">
-              <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold flex items-center gap-2">
+              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 <span>some walkthroughs</span>
               </h2>
               <div className="grid grid-cols-1 gap-6">
                 {featureDemos.map((demo, index) => (
                   <div key={index} className="space-y-3 group">
-                    <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-900/50">
+                    <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border/80 bg-card/70">
                       <iframe
                         src={demo.loomUrl}
                         frameBorder="0"
@@ -302,12 +287,12 @@ export default function PortfolioV2() {
                     </div>
                     <div className="px-1">
                       <div className="flex items-center gap-2">
-                        <Play className="w-3 h-3 text-muted-foreground" />
+                        <Play className="h-3 w-3 text-muted-foreground" />
                         <span className="text-sm font-semibold leading-snug">
                           {demo.title}
                         </span>
                       </div>
-                      <p className="text-[13px] opacity-50 mt-1 italic">
+                      <p className="mt-1 text-[13px] italic text-muted-foreground">
                         {demo.description}
                       </p>
                     </div>
@@ -337,10 +322,10 @@ function ContactLink({
       target="_blank"
       rel="noopener noreferrer"
       whileHover={{ x: 3 }}
-      className="flex items-center gap-2 group border-b border-transparent hover:border-accent pb-1"
+      className="group flex items-center gap-2 border-b border-transparent pb-1 text-sm text-muted-foreground transition-colors hover:border-accent hover:text-foreground"
     >
-      <span className="opacity-50">{icon}</span>
-      <span className="text-base font-medium">{label}</span>
+      <span className="opacity-60">{icon}</span>
+      <span className="font-medium">{label}</span>
     </motion.a>
   );
 }

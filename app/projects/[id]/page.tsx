@@ -25,43 +25,46 @@ const techStack = [
 
 export default function ProjectPage() {
   return (
-    <main className="min-h-screen w-full bg-background text-foreground mt-6">
-      <div className="mx-auto w-full max-w-3xl px-4 pt-20 pb-16">
+    <main className="w-full bg-background text-foreground">
+      <div className="mx-auto w-full max-w-3xl px-4 pb-16 pt-6 sm:px-6 sm:pt-8 lg:px-8 lg:pt-10">
         {/* Back Button */}
         <Link href="/">
           <Button
-            variant="ghost"
+            variant="outline"
             size="sm"
-            className="mb-8 sm:mb-12 -ml-2 text-muted-foreground"
+            className="mb-8 -ml-2 text-muted-foreground sm:mb-12"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className="mr-2 h-4 w-4" />
             back
           </Button>
         </Link>
 
-        <header className="space-y-4 mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
+        <header className="mb-10 space-y-3 sm:mb-12">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            case study
+          </p>
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
             study-toolkit
           </h1>
-          <p className="text-xl text-foreground/70 leading-relaxed">
+          <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             An open-source, student-first productivity platform built to help
             students manage their academics efficiently.
           </p>
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-4 text-sm">
             <a
               href="https://study-toolkit.vercel.app/"
               target="_blank"
-              className="flex items-center gap-2 text-sm font-medium hover:underline"
+              className="flex items-center gap-2 font-medium text-primary underline-offset-4 hover:underline"
             >
-              <ExternalLink className="w-4 h-4" /> Live Demo
+              <ExternalLink className="h-4 w-4" /> live demo
             </a>
             <a
               href="https://github.com/subhraneel2005/study-toolkit"
               target="_blank"
-              className="flex items-center gap-2 text-sm font-medium hover:underline"
+              className="flex items-center gap-2 font-medium text-primary underline-offset-4 hover:underline"
             >
-              <Github className="w-4 h-4" /> Source Code
+              <Github className="h-4 w-4" /> source code
             </a>
           </div>
         </header>
@@ -69,25 +72,25 @@ export default function ProjectPage() {
         <div className="space-y-12">
           {/* Key Features */}
           <section className="space-y-6">
-            <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
-              Key Features
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              key features
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <FeatureCard
-                icon={<Cpu className="w-4 h-4" />}
-                title="AI Tools"
-                desc="Flashcards, PDF Chat, and Summarizers using Gemini API."
+                icon={<Cpu className="h-4 w-4" />}
+                title="ai tools"
+                desc="flashcards, pdf chat, and summarizers powered by gemini."
               />
               <FeatureCard
-                icon={<ShieldCheck className="w-4 h-4" />}
-                title="Secure BYOK"
-                desc="Two-layer encryption for personal API key storage."
+                icon={<ShieldCheck className="h-4 w-4" />}
+                title="secure byok"
+                desc="two-layer encryption for personal api key storage."
               />
             </div>
-            <ul className="space-y-3 text-muted-foreground text-sm list-disc pl-4">
-              <li>Daily logs, checklists, and study heatmap tracking.</li>
-              <li>Clean, responsive UI focused on minimal distraction.</li>
-              <li>Fully open-source and community driven.</li>
+            <ul className="list-disc space-y-3 pl-4 text-sm text-muted-foreground">
+              <li>daily logs, checklist, and study heatmap tracking.</li>
+              <li>clean, responsive ui focused on minimal distraction.</li>
+              <li>fully open-source and community driven.</li>
             </ul>
           </section>
 
@@ -95,17 +98,17 @@ export default function ProjectPage() {
 
           {/* Architecture / Tech Stack Section */}
           <div className="space-y-6">
-            <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
-              Stack
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              stack
             </h2>
             <div className="flex flex-wrap gap-2">
               {techStack.map((tech) => (
                 <Badge
                   variant={"outline"}
                   key={tech.name}
-                  className="flex items-center gap-1 group bg-secondary"
+                  className="group flex items-center gap-1 bg-secondary/70"
                 >
-                  <div className="relative w-[15px] h-[15px]">
+                  <div className="relative h-[15px] w-[15px]">
                     <Image
                       src={tech.src}
                       alt={tech.name}
@@ -125,11 +128,11 @@ export default function ProjectPage() {
 
           {/* Impact */}
           <section className="space-y-4">
-            <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
-              The Goal
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              the goal
             </h2>
-            <p className="text-foreground/70 italic leading-relaxed">
-              &ldquo;Provide a beta platform for 1k to 5k students to manage and
+            <p className="max-w-xl text-sm italic leading-relaxed text-muted-foreground sm:text-base">
+              &ldquo;provide a beta platform for 1k to 5k students to manage and
               enhance their study workflow while collecting feedback to refine
               the platform.&ldquo;
             </p>
@@ -150,11 +153,11 @@ function FeatureCard({
   desc: string;
 }) {
   return (
-    <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-900 bg-zinc-50/50 dark:bg-zinc-900/30">
-      <div className="flex items-center gap-2 mb-2 font-semibold text-sm">
+    <div className="rounded-xl border border-border/80 bg-card/80 p-4">
+      <div className="mb-2 flex items-center gap-2 text-sm font-semibold">
         {icon} {title}
       </div>
-      <p className="text-xs text-zinc-500 leading-relaxed">{desc}</p>
+      <p className="text-xs leading-relaxed text-muted-foreground">{desc}</p>
     </div>
   );
 }

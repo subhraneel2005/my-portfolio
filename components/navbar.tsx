@@ -14,23 +14,23 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
   const isDark = currentTheme === "dark";
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center lowercase bg-background text-foreground overflow-x-hidden">
-      <nav className="fixed top-0 left-0 right-0 w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 flex justify-between items-center z-50 bg-background max-w-full overflow-x-hidden">
+    <div className="min-h-screen w-full bg-background text-foreground">
+      <nav className="fixed top-0 left-0 right-0 z-50 mx-auto flex max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6 backdrop-blur border-b border-border/60 bg-background/80">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="flex items-center gap-2 sm:gap-3 md:gap-6 min-w-0 flex-1"
+          className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3 md:gap-6"
         >
-          <div className="flex items-center gap-1.5 sm:gap-2 font-bold tracking-tighter shrink-0">
-            <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span className="text-xs sm:text-sm md:text-base whitespace-nowrap">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 font-semibold tracking-tight">
+            <Terminal className="h-4 w-4 sm:h-4 sm:w-4" />
+            <span className="whitespace-nowrap text-xs sm:text-sm md:text-base">
               subhraneel.
             </span>
           </div>
           <Link href="/blogs" className="shrink-0">
             <motion.div
               whileHover={{ opacity: 0.7 }}
-              className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+              className="whitespace-nowrap text-xs font-medium text-muted-foreground transition-colors hover:text-foreground sm:text-sm"
             >
               blogs
             </motion.div>
@@ -41,7 +41,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
           variant="ghost"
           size="icon"
           onClick={() => setTheme(isDark ? "light" : "dark")}
-          className="rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300 shrink-0 ml-2"
+          className="ml-2 shrink-0 rounded-full transition-all duration-300 hover:bg-accent/60"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -60,7 +60,9 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
           </AnimatePresence>
         </Button>
       </nav>
-      {children}
+      <main className="pt-20 sm:pt-24 lg:pt-28">
+        {children}
+      </main>
     </div>
   );
 }
