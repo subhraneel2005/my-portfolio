@@ -17,6 +17,8 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Calendar } from "lucide-react";
 
 export default function PortfolioV2() {
   const [mounted, setMounted] = React.useState(false);
@@ -87,7 +89,41 @@ export default function PortfolioV2() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <h1 className="mb-6 text-3xl font-semibold leading-[0.9] tracking-tight sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
-            hi, i&apos;m subhraneel 👋 <br />
+            hi, i&apos;m{" "}
+            <HoverCard openDelay={10} closeDelay={100}>
+              <HoverCardTrigger asChild >
+                <span className="cursor-pointer">
+                  subhraneel
+                </span>
+              </HoverCardTrigger>
+              <HoverCardContent className="w-80" side="bottom" align="start">
+                <Link href="/blogs/whos-this-guy" className="block group">
+                  <div className="space-y-3">
+                    <div className="relative h-32 w-full overflow-hidden rounded-lg border border-border/70">
+                      <Image
+                        src="/images/blog2.png"
+                        alt="Who is this guy?"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-semibold text-sm">Who is this guy?</p>
+                      <p className="text-xs text-muted-foreground line-clamp-2">
+                        here ive yapped about myself
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="outline" className="gap-1 text-xs">
+                          <Calendar className="h-3 w-3" />
+                          27 Jan, 2026
+                        </Badge>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </HoverCardContent>
+            </HoverCard>{" "}
+            👋 <br />
             <span className="mt-2 inline-block text-2xl font-light italic text-muted-foreground sm:text-3xl md:text-4xl lg:text-5xl">
               i build things for the web.
             </span>
@@ -98,7 +134,48 @@ export default function PortfolioV2() {
               focused on skillmaxxing and shipping useful tools.
             </p>
 
-            <Separator />
+            <Link href="/blogs/whos-this-guy">
+              <motion.div
+                whileHover={{ x: 4 }}
+                className="group rounded-xl border border-border/80 bg-card/70 p-4 transition-colors hover:bg-accent/40"
+              >
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <div className="relative h-24 w-full shrink-0 overflow-hidden rounded-lg border border-border/60 sm:h-20 sm:w-28">
+                    <Image
+                      src="/images/blog2.png"
+                      alt="Who is this guy?"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="text-sm font-semibold leading-snug">
+                          who is this guy?
+                        </p>
+                        <p className="mt-1 text-[13px] text-muted-foreground line-clamp-2">
+                          final year cs student building production-ready fullstack apps. i ship things that actually work.
+                        </p>
+                      </div>
+                      <ExternalLink className="mt-1 h-3 w-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-40" />
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-[11px]">
+                        about me
+                      </Badge>
+                      <Badge variant="secondary" className="text-[11px]">
+                        work
+                      </Badge>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
+
+
+
+            <Separator className="mt-10" />
 
             {/* NEW: Projects Section */}
             <div id="projects" className="space-y-4">
