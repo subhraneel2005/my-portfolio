@@ -132,7 +132,7 @@ export default function PortfolioV2() {
                   <ArrowUpRight className="h-4 w-4" />
                 </motion.button>
               </Link>
-              <Link href="/oss/whos-this-guy">
+              <Link href="/blogs/whos-this-guy">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
