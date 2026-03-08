@@ -1,24 +1,19 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Github,
   Mail,
-  GitPullRequestArrow,
   ExternalLink,
   Twitter,
-  Terminal,
-  Play,
-  BookOpen,
-  ChevronRight,
+  ArrowRight,
+  ArrowUpRight,
+  Link2,
 } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
 import { Badge } from "../ui/badge";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { Calendar } from "lucide-react";
 
 export default function PortfolioV2() {
   const [mounted, setMounted] = React.useState(false);
@@ -27,364 +22,264 @@ export default function PortfolioV2() {
 
   if (!mounted) return null;
 
-  const pullRequests = [
-    {
-      id: "20",
-      url: " https://github.com/subhraneel2005/study-toolkit/pull/20",
-      title: "feat: Finished user onboarding e2e",
-    },
-    {
-      id: "19",
-      url: "https://github.com/subhraneel2005/study-toolkit/pull/19",
-      title: "feat: Built the Daily Checklist feature e2e",
-    },
-    {
-      id: "18",
-      url: "https://github.com/subhraneel2005/study-toolkit/pull/18",
-      title: "feat: Added RSC for DailyLog screen",
-    },
-    {
-      id: "17",
-      url: "https://github.com/subhraneel2005/study-toolkit/pull/17",
-      title: "feat: Added Dailylog feature e2e",
-    },
-    {
-      id: "14",
-      url: "https://github.com/subhraneel2005/study-toolkit/pull/14",
-      title:
-        "feat: Added chat peristance and dispose chat button in Chat with pdf agent",
-    },
-    {
-      id: "11",
-      url: "https://github.com/subhraneel2005/study-toolkit/pull/11",
-      title: "feat/Added flashcards generator with disposable zustand store",
-    },
-  ];
-
-  const featureDemos = [
-    {
-      title: "onboarding flow walkthrough",
-      loomUrl: "https://www.loom.com/embed/71f9e74f32a54221852b099b0e5b6e85",
-      description:
-        "implemented full user onboarding usign betterauth, resend, prisma and react server actions",
-    },
+  const techStack = [
+    "Next.js",
+    "TypeScript",
+    "React",
+    "Prisma",
+    "PostgreSQL",
+    "Node.js",
+    "AI SDK",
+    "Tailwind",
   ];
 
   const projects = [
     {
+      id: "docshub",
+      title: "Docshub",
+      description:
+        "AI documentation pipeline that lives in your CLI. Generate high-fidelity docs from any GitHub repo.",
+      longDescription:
+        "Authenticate via GitHub device flow, select a repo, and let AI generate structured documentation. Output to Fumadocs-ready format.",
+      tech: ["Bun",
+        "Turborepo",
+        "AI SDK",
+        "OpenRouter",
+        "GitHub API",
+        "OpenTUI",
+        "TypeScript"],
+      url: "https://docshubb.vercel.app",
+      github: "https://github.com/subhraneel2005/docshub",
+    },
+    {
+      id: "ai-shorts-generator",
+      title: "Local AI Shorts Generator",
+      description:
+        "End-to-end pipeline that converts text prompts into ready-to-publish TikTok/Reels/Shorts videos.",
+      longDescription:
+        "A multi-flow architecture for script generation, audio synthesis, transcription, and server-side video rendering using Remotion.",
+      tech: ["TypeScript", "Remotion", "ElevenLabs", "OpenAI", "Whisper.cpp"],
+      url: "https://vidgen-docs.vercel.app",
+      github: "https://github.com/subhraneel2005/ai-shorts-generator",
+    },
+    {
       id: "study-toolkit",
-      title: "study-toolkit",
+      title: "Study-toolkit",
       description:
         "An open-source, student-first productivity platform with AI-powered tools.",
-      tech: ["Next.js", "Vercel AI SDK", "Prisma"],
+      longDescription:
+        "A comprehensive platform helping students manage academics with AI tools, daily logs, and study tracking.",
+      tech: ["Next.js", "Vercel AI SDK", "Prisma", "PostgreSQL"],
+      url: "https://study-toolkit.vercel.app/",
+      github: "https://github.com/subhraneel2005/study-toolkit",
     },
+    {
+      id: "trpc-realtime-notifications",
+      title: "Real-time Notifications",
+      description:
+        "A real-time notification system using tRPC and WebSockets for low-latency event delivery.",
+      longDescription:
+        "Designed and built a production-grade notification system with authenticated WebSocket connections and E2E post-like flow.",
+      tech: ["Next.js", "tRPC", "WebSockets", "Prisma", "PostgreSQL"],
+      url: "",
+      github: "https://github.com/subhraneel2005/trpc-realtime-notification-service",
+    },
+
   ];
 
   return (
     <main className="min-h-screen w-full bg-background text-foreground">
-      <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
+      <div className="mx-auto w-full max-w-2xl px-6 py-16 sm:py-24">
         <motion.section
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="space-y-12"
         >
-          <h1 className="mb-6 text-3xl font-semibold leading-[0.9] tracking-tight sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
-            hi, i&apos;m{" "}
-            <HoverCard openDelay={10} closeDelay={100}>
-              <HoverCardTrigger asChild >
-                <span className="cursor-pointer">
-                  subhraneel
-                </span>
-              </HoverCardTrigger>
-              <HoverCardContent className="w-80" side="bottom" align="start">
-                <Link href="/blogs/whos-this-guy" className="block group">
-                  <div className="space-y-3">
-                    <div className="relative h-32 w-full overflow-hidden rounded-lg border border-border/70">
-                      <Image
-                        src="/images/blog2.png"
-                        alt="Who is this guy?"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="font-semibold text-sm">Who is this guy?</p>
-                      <p className="text-xs text-muted-foreground line-clamp-2">
-                        here ive yapped about myself
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge variant="outline" className="gap-1 text-xs">
-                          <Calendar className="h-3 w-3" />
-                          27 Jan, 2026
-                        </Badge>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </HoverCardContent>
-            </HoverCard>{" "}
-            👋 <br />
-            <span className="mt-2 inline-block text-2xl font-light italic text-muted-foreground sm:text-3xl md:text-4xl lg:text-5xl">
-              i build things for the web.
-            </span>
-          </h1>
-          <div className="space-y-8 sm:space-y-10">
-            <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              i like to create open-source tools and explore new tech. currently
-              focused on skillmaxxing and shipping useful tools.
-            </p>
+          <div className="space-y-6">
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              hi, i&apos;m subhraneel.
+            </h1>
+            <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
+              <p>
+                i love building challenging projects, coding, shipping, and improving them. taking ideas from 0 → 1 and scaling them is exactly the kind of environment i want to be in.
+              </p>
+              <p>
+                i contribute to open source under organizations like Sugar Labs, working on real codebases in distributed teams. i&apos;m also building my own cli/tui interface, focused on clean architecture and developer experience.
+              </p>
+              <p>
+                recently, i built an ai shorts generator pipeline using typescript, node, ai sdk, and elevenlabs, handling async orchestration, media processing, and api integrations end to end.
+              </p>
+              <p>
+                i document my work on github, write technical breakdowns on my portfolio blog, and share what i build on X.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2 pt-2">
+              {techStack.map((tech) => (
+                <Badge key={tech} variant="secondary" className="text-xs">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link href="/blogs">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  read blogs
+                  <ArrowUpRight className="h-4 w-4" />
+                </motion.button>
+              </Link>
+              <Link href="/oss/whos-this-guy">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                >
+                  about me
+                </motion.button>
+              </Link>
+            </div>
+          </div>
 
-            <Link href="/blogs/whos-this-guy">
+          <Separator />
+
+          <motion.section
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            className="space-y-6"
+          >
+            <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+              open source
+            </h2>
+            <Link href="/oss">
               <motion.div
                 whileHover={{ x: 4 }}
-                className="group rounded-xl border border-border/80 bg-card/70 p-4 transition-colors hover:bg-accent/40"
+                className="group flex items-center justify-between rounded-xl border border-border bg-card p-6 transition-colors hover:border-border/80 hover:bg-accent/20"
               >
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <div className="relative h-24 w-full shrink-0 overflow-hidden rounded-lg border border-border/60 sm:h-20 sm:w-28">
-                    <Image
-                      src="/images/blog2.png"
-                      alt="Who is this guy?"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 space-y-2">
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <p className="text-sm font-semibold leading-snug">
-                          who is this guy?
-                        </p>
-                        <p className="mt-1 text-[13px] text-muted-foreground line-clamp-2">
-                          final year cs student building production-ready fullstack apps. i ship things that actually work.
-                        </p>
-                      </div>
-                      <ExternalLink className="mt-1 h-3 w-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-40" />
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary" className="text-[11px]">
-                        about me
-                      </Badge>
-                      <Badge variant="secondary" className="text-[11px]">
-                        work
-                      </Badge>
-                    </div>
-                  </div>
+                <div className="space-y-2">
+                  <h3 className="text-lg font-semibold">my open source work</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Projects, contributions, and tools i&apos;ve built.
+                  </p>
+
                 </div>
+                <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
               </motion.div>
             </Link>
+          </motion.section>
 
+          <Separator />
 
-
-            <Separator className="mt-10" />
-
-            {/* NEW: Projects Section */}
-            <div id="projects" className="space-y-4">
-              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                <span>side projects</span>
-              </h2>
-              <div className="grid grid-cols-1 gap-3">
-                {projects.map((project) => (
-                  <Link href={`/projects/${project.id}`} key={project.id}>
-                    <div className="group flex cursor-pointer flex-col gap-4 rounded-xl border border-border/80 bg-card/70 p-3 transition-colors hover:bg-accent/40 sm:flex-row">
-                      {/* Small, fixed-size Thumbnail for horizontal look */}
-                      <div className="relative h-28 w-full shrink-0 overflow-hidden rounded-lg border border-border/60 sm:w-40">
-                        <Image
-                          src="/opengraph.png"
-                          alt={`${project.title} thumbnail`}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-
-                      <div className="flex flex-col justify-center flex-1">
-                        <div className="mb-1 flex items-center justify-between">
-                          <span className="text-sm font-semibold leading-snug tracking-tight sm:text-base">
+          <motion.section
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            className="space-y-6"
+          >
+            <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+              projects
+            </h2>
+            <div className="space-y-6">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
+                >
+                  <Link href={`/projects/${project.id}`}>
+                    <motion.div
+                      whileHover={{ scale: 1.01 }}
+                      className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-colors hover:border-border/80 hover:bg-accent/20"
+                    >
+                      <div className="flex flex-col gap-3">
+                        <div className="flex items-start justify-between gap-4">
+                          <h3 className="text-xl font-semibold tracking-tight">
                             {project.title}
-                          </span>
-                          <ChevronRight className="h-4 w-4 opacity-20 transition-opacity group-hover:opacity-100" />
+                          </h3>
+                          <div className="flex gap-4">
+                            {project.url && (
+                              <a
+                                href={project.url}
+                                onClick={(e) => e.stopPropagation()}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-muted-foreground hover:text-foreground transition-colors"
+                              >
+                                <Link2 className="h-4 w-4" />
+                              </a>
+                            )}
+                            {project.github && (
+                              <a
+                                href={project.github}
+                                onClick={(e) => e.stopPropagation()}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-muted-foreground hover:text-foreground transition-colors"
+                              >
+                                <Github className="h-4 w-4" />
+                              </a>
+                            )}
+                          </div>
                         </div>
-
-                        <span className="mb-4 line-clamp-2 text-[13px] text-muted-foreground">
-                          {project.description}
-                        </span>
-
-                        <div className="flex flex-wrap gap-2">
-                          {[
-                            { name: "Next.js", src: "/nextjs.png" },
-                            { name: "Prisma", src: "/prisma.png" },
-                            { name: "Vercel", src: "/vercel.svg" },
-                            { name: "Gemini", src: "/gemini.png" },
-                          ].map((tech) => (
-                            <Badge variant="outline" key={tech.name} className="gap-1 bg-secondary/60">
-                              <Image
-                                src={tech.src}
-                                alt={tech.name}
-                                width={12}
-                                height={12}
-                                className="object-contain"
-                              />
-                              <span className="text-[13px] font-medium tracking-tight">
-                                {tech.name}
-                              </span>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {project.longDescription}
+                        </p>
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {project.tech.map((t) => (
+                            <Badge key={t} variant="outline" className="text-xs">
+                              {t}
                             </Badge>
                           ))}
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </Link>
-                ))}
-              </div>
-            </div>
-
-            <Separator />
-
-            {/* Current Working and Documenting Section */}
-            <div id="work" className="space-y-4">
-              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                <span>current work & documenting</span>
-              </h2>
-              <div className="grid grid-cols-1 gap-3">
-                {pullRequests.map((pr) => (
-                  <motion.a
-                    key={pr.id}
-                    href={pr.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ x: 4 }}
-                    className="group flex items-start justify-between rounded-xl border border-border/80 bg-card/70 p-4 transition-colors hover:bg-accent/40"
-                  >
-                    <div className="flex gap-4">
-                      <div className="mt-1">
-                        <GitPullRequestArrow className="h-4 w-4 text-purple-500 dark:text-purple-400" />
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        <span className="text-sm font-semibold leading-snug">
-                          {pr.title}
-                        </span>
-                        <span className="text-[13px] text-muted-foreground">
-                          PR #{pr.id} — study-toolkit
-                        </span>
-                      </div>
-                    </div>
-                    <ExternalLink className="mt-1 h-3 w-3 opacity-0 transition-opacity group-hover:opacity-40" />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-
-            <Separator />
-
-            {/* Blog Section */}
-            <div id="blog" className="space-y-4">
-              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                <span>blogs</span>
-              </h2>
-              <Link href="/blogs">
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  className="group flex cursor-pointer items-start justify-between rounded-xl border border-border/80 bg-card/70 p-4 transition-colors hover:bg-accent/40"
-                >
-                  <div className="flex gap-4">
-                    <div className="mt-1">
-                      <BookOpen className="h-4 w-4 text-purple-500 dark:text-purple-400" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <span className="text-sm font-semibold leading-snug">
-                        read my blogs
-                      </span>
-                      <span className="text-[13px] text-muted-foreground">
-                        thoughts and learnings
-                      </span>
-                    </div>
-                  </div>
-                  <ExternalLink className="mt-1 h-3 w-3 opacity-0 transition-opacity group-hover:opacity-40" />
                 </motion.div>
-              </Link>
+              ))}
             </div>
+          </motion.section>
 
-            <Separator />
+          <Separator />
 
-            {/* Let's Chat Section */}
-            <div id="letsConnect" className="space-y-4">
-              <div className="pt-4">
-                <motion.a
-                  href="https://x.com/subhraneeltwt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ x: 2 }}
-                  className="group flex items-center justify-between rounded-xl border border-border/80 bg-card/80 p-4 transition-colors hover:bg-accent/40"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="rounded-lg border border-border/70 bg-background p-2">
-                      <Twitter className="h-5 w-5 fill-current" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold">
-                        let&apos;s chat on x
-                      </p>
-                      <p className="text-xs italic text-muted-foreground">
-                        @subhraneeltwt
-                      </p>
-                    </div>
-                  </div>
-                </motion.a>
-              </div>
-
-              <div className="flex flex-wrap gap-x-8 gap-y-2">
-                <ContactLink
-                  href="https://github.com/subhraneel2005"
-                  label="github"
-                  icon={<Github className="w-4 h-4" />}
-                />
-                <ContactLink
-                  href="mailto:subhraneeljobs@gmail.com"
-                  label="email"
-                  icon={<Mail className="w-4 h-4" />}
-                />
-              </div>
+          <motion.section
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+            className="space-y-6"
+          >
+            <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+              let&apos;s connect
+            </h2>
+            <div className="flex flex-wrap gap-x-6 gap-y-3">
+              <SocialLink
+                href="https://x.com/subhraneeltwt"
+                label="@subhraneeltwt"
+                icon={<Twitter className="h-4 w-4" />}
+              />
+              <SocialLink
+                href="https://github.com/subhraneel2005"
+                label="github"
+                icon={<Github className="h-4 w-4" />}
+              />
+              <SocialLink
+                href="mailto:subhraneeljobs@gmail.com"
+                label="email"
+                icon={<Mail className="h-4 w-4" />}
+              />
             </div>
-
-            <Separator />
-
-            {/* Feature Demos Section (LOOM EMBEDS) */}
-            <div id="demos" className="space-y-6">
-              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                <span>some walkthroughs</span>
-              </h2>
-              <div className="grid grid-cols-1 gap-6">
-                {featureDemos.map((demo, index) => (
-                  <div key={index} className="space-y-3 group">
-                    <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border/80 bg-card/70">
-                      <iframe
-                        src={demo.loomUrl}
-                        frameBorder="0"
-                        allowFullScreen
-                        className="absolute top-0 left-0 w-full h-full"
-                      ></iframe>
-                    </div>
-                    <div className="px-1">
-                      <div className="flex items-center gap-2">
-                        <Play className="h-3 w-3 text-muted-foreground" />
-                        <span className="text-sm font-semibold leading-snug">
-                          {demo.title}
-                        </span>
-                      </div>
-                      <p className="mt-1 text-[13px] italic text-muted-foreground">
-                        {demo.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          </motion.section>
         </motion.section>
       </div>
     </main>
   );
 }
 
-function ContactLink({
+function SocialLink({
   href,
   label,
   icon,
@@ -398,11 +293,11 @@ function ContactLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ x: 3 }}
-      className="group flex items-center gap-2 border-b border-transparent pb-1 text-sm text-muted-foreground transition-colors hover:border-accent hover:text-foreground"
+      whileHover={{ x: 2 }}
+      className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
     >
-      <span className="opacity-60">{icon}</span>
-      <span className="font-medium">{label}</span>
+      {icon}
+      <span>{label}</span>
     </motion.a>
   );
 }

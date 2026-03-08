@@ -7,17 +7,17 @@ import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "subhraneel",
-  description: "your friendly neighbourhood developer guy",
+  description: "your friendly neighbourhood spoiderman",
   openGraph: {
     title: "subhraneel",
-    description: "your friendly neighbourhood developer guy",
-    images: ["/opengraph-image"],
+    description: "your friendly neighbourhood spoiderman",
+    images: ["/home-opengraph.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "subhraneel",
-    description: "your friendly neighbourhood developer guy",
-    images: ["/opengraph-image"],
+    description: "your friendly neighbourhood spoiderman",
+    images: ["/home-opengraph.png"],
   },
 };
 
