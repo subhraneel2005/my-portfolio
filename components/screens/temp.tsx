@@ -14,9 +14,17 @@ import {
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "../ui/badge";
+import Image from "next/image";
+import { useTheme } from "next-themes"
+
 
 export default function PortfolioV2() {
   const [mounted, setMounted] = React.useState(false);
+
+  const { theme } = useTheme();
+
+  const cal_com_src = theme === "dark" ? "/cal-com.svg" : "/cal-com-light.svg"
+
 
   React.useEffect(() => setMounted(true), []);
 
@@ -41,13 +49,15 @@ export default function PortfolioV2() {
         "AI documentation pipeline that lives in your CLI. Generate high-fidelity docs from any GitHub repo.",
       longDescription:
         "Authenticate via GitHub device flow, select a repo, and let AI generate structured documentation. Output to Fumadocs-ready format.",
-      tech: ["Bun",
+      tech: [
+        "Bun",
         "Turborepo",
         "AI SDK",
         "OpenRouter",
         "GitHub API",
         "OpenTUI",
-        "TypeScript"],
+        "TypeScript",
+      ],
       url: "https://docshubb.vercel.app",
       github: "https://github.com/subhraneel2005/docshub",
     },
@@ -82,9 +92,9 @@ export default function PortfolioV2() {
         "Designed and built a production-grade notification system with authenticated WebSocket connections and E2E post-like flow.",
       tech: ["Next.js", "tRPC", "WebSockets", "Prisma", "PostgreSQL"],
       url: "",
-      github: "https://github.com/subhraneel2005/trpc-realtime-notification-service",
+      github:
+        "https://github.com/subhraneel2005/trpc-realtime-notification-service",
     },
-
   ];
 
   return (
@@ -102,16 +112,25 @@ export default function PortfolioV2() {
             </h1>
             <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
               <p>
-                i love building challenging projects, coding, shipping, and improving them. taking ideas from 0 → 1 and scaling them is exactly the kind of environment i want to be in.
+                i love building challenging projects, coding, shipping, and
+                improving them. taking ideas from 0 → 1 and scaling them is
+                exactly the kind of environment i want to be in.
               </p>
               <p>
-                i contribute to open source under organizations like Sugar Labs, working on real codebases in distributed teams. i&apos;m also building my own cli/tui interface, focused on clean architecture and developer experience.
+                i contribute to open source under organizations like Sugar Labs,
+                working on real codebases in distributed teams. i&apos;m also
+                building my own cli/tui interface, focused on clean architecture
+                and developer experience.
               </p>
               <p>
-                recently, i built an ai shorts generator pipeline using typescript, node, ai sdk, and elevenlabs, handling async orchestration, media processing, and api integrations end to end.
+                recently, i built an ai shorts generator pipeline using
+                typescript, node, ai sdk, and elevenlabs, handling async
+                orchestration, media processing, and api integrations end to
+                end.
               </p>
               <p>
-                i document my work on github, write technical breakdowns on my portfolio blog, and share what i build on X.
+                i document my work on github, write technical breakdowns on my
+                portfolio blog, and share what i build on X.
               </p>
             </div>
             <div className="flex flex-wrap gap-2 pt-2">
@@ -122,14 +141,22 @@ export default function PortfolioV2() {
               ))}
             </div>
             <div className="flex flex-wrap gap-3 pt-2">
-              <Link href="/blogs">
+              <Link
+                href="https://cal.com/subhraneel-2005/coffee-chat-with-subhraneel"
+                target="_blank"
+              >
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
                 >
-                  read blogs
-                  <ArrowUpRight className="h-4 w-4" />
+                  book a call
+                  <Image
+                    src={cal_com_src}
+                    width={20}
+                    height={20}
+                    alt="cal-com-logo"
+                  />
                 </motion.button>
               </Link>
               <Link href="/blogs/whos-this-guy">
@@ -139,6 +166,16 @@ export default function PortfolioV2() {
                   className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
                   about me
+                </motion.button>
+              </Link>
+              <Link href={"/blogs"}>
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                >
+                  read blogs
+                  <ArrowUpRight className="h-4 w-4" />
                 </motion.button>
               </Link>
             </div>
@@ -165,7 +202,6 @@ export default function PortfolioV2() {
                   <p className="text-sm text-muted-foreground">
                     Projects, contributions, and tools i&apos;ve built.
                   </p>
-
                 </div>
                 <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
               </motion.div>
@@ -231,7 +267,11 @@ export default function PortfolioV2() {
                         </p>
                         <div className="flex flex-wrap gap-2 pt-1">
                           {project.tech.map((t) => (
-                            <Badge key={t} variant="outline" className="text-xs">
+                            <Badge
+                              key={t}
+                              variant="outline"
+                              className="text-xs"
+                            >
                               {t}
                             </Badge>
                           ))}
