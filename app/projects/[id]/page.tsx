@@ -32,8 +32,64 @@ const projectsData: Record<
     url?: string;
     github: string;
     goal?: string;
+    inProgress?: boolean;
   }
 > = {
+  sidequests: {
+    title: "AI Terminal Coding Agent",
+    description:
+      "CLI-based AI coding agent capable of autonomous tool usage for navigating and modifying codebases.",
+    longDescription:
+      "A CLI-based AI coding agent capable of autonomous tool usage for navigating and modifying codebases. Built with tool-calling architecture enabling dynamic filesystem and bash tool invocation. Integrated Git tools for version history, staged changes, push/pull, issues, PRs and more. Features core agent loop with streamed responses, multi-step reasoning, and token usage tracking. Includes filesystem tools (read, search, write, edit) with typed I/O and safe failure handling. Human-in-the-loop approval system with diff display before applying edits. Bash tools (ls, pwd, grep) for project exploration. Path traversal protection ensures safe operation within project root.",
+    tech: [
+      { name: "TypeScript" },
+      { name: "OpenRouter" },
+      { name: "Google Gemini" },
+      { name: "Tool Calling" },
+      { name: "Node.js" },
+    ],
+    features: [
+      {
+        icon: <Terminal className="h-4 w-4" />,
+        title: "Tool-Calling Architecture",
+        desc: "Dynamic filesystem and bash tool invocation for autonomous code navigation.",
+      },
+      {
+        icon: <Github className="h-4 w-4" />,
+        title: "Git Integration",
+        desc: "Version history, staged changes, push/pull, issues, PRs and more.",
+      },
+      {
+        icon: <Cpu className="h-4 w-4" />,
+        title: "Core Agent Loop",
+        desc: "Streamed responses, multi-step reasoning, and token usage tracking.",
+      },
+      {
+        icon: <ShieldCheck className="h-4 w-4" />,
+        title: "Human-in-the-Loop",
+        desc: "Diff display before applying edits to prevent destructive actions.",
+      },
+      {
+        icon: <Zap className="h-4 w-4" />,
+        title: "Path Traversal Protection",
+        desc: "Ensures agent cannot operate outside the project root directory.",
+      },
+    ],
+    highlights: [
+      "CLI-based AI coding agent with autonomous tool usage",
+      "Tool-calling architecture for dynamic filesystem and bash tools",
+      "Git tools: commit, push, pull, issue create/edit, PR operations",
+      "Planner sub-agent with todo tools (create, update, get next, check completion)",
+      "Filesystem tools: read, search, write, edit with typed I/O",
+      "Bash tools: ls, pwd, grep for project exploration",
+      "Human-in-the-loop approval with diff display",
+      "Path traversal protection for safe operation",
+      "Upcoming: memory, token usage screen, code execution, voice mode, notifier",
+    ],
+    github: "https://github.com/subhraneel2005/sidequests",
+    goal: "Build a powerful CLI coding agent that can autonomously navigate and modify codebases with proper safety guardrails.",
+    inProgress: true,
+  },
   "study-toolkit": {
     title: "study-toolkit",
     description:
@@ -240,6 +296,11 @@ export default function ProjectPage() {
           </p>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
             {project.title}
+            {project.inProgress && (
+              <Badge variant="secondary" className="ml-2 bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 border-yellow-500/30">
+                In Progress
+              </Badge>
+            )}
           </h1>
           <p className="text-base leading-relaxed text-muted-foreground">
             {project.longDescription}

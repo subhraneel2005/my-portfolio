@@ -43,6 +43,24 @@ export default function PortfolioV2() {
 
   const projects = [
     {
+      id: "sidequests",
+      title: "AI Terminal Coding Agent",
+      description:
+        "CLI-based AI coding agent capable of autonomous tool usage for navigating and modifying codebases.",
+      longDescription:
+        "A CLI-based AI coding agent capable of autonomous tool usage for navigating and modifying codebases. Built with tool-calling architecture enabling dynamic filesystem and bash tool invocation. Integrated Git tools for version history, staged changes, push/pull, issues, PRs and more. Features core agent loop with streamed responses, multi-step reasoning, and token usage tracking. Includes filesystem tools (read, search, write, edit) with typed I/O and safe failure handling. Human-in-the-loop approval system with diff display before applying edits. Bash tools (ls, pwd, grep) for project exploration. Path traversal protection ensures safe operation within project root. Upcoming: memory for context, token usage screen, code execution (.py/.js/.ts), voice mode, task completion notifier.",
+      tech: [
+        "TypeScript",
+        "OpenRouter",
+        "Google-Gemini",
+        "Tool Calling",
+        "Node.js",
+      ],
+      url: "",
+      github: "https://github.com/subhraneel2005/sidequests",
+      inProgress: true,
+    },
+    {
       id: "docshub",
       title: "Docshub",
       description:
@@ -236,6 +254,11 @@ export default function PortfolioV2() {
                         <div className="flex items-start justify-between gap-4">
                           <h3 className="text-xl font-semibold tracking-tight">
                             {project.title}
+                            {project.inProgress && (
+                              <Badge variant="secondary" className="ml-2 bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 border-yellow-500/30">
+                                In Progress
+                              </Badge>
+                            )}
                           </h3>
                           <div className="flex gap-4">
                             {project.url && (
